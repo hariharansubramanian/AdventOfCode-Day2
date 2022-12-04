@@ -2,28 +2,14 @@
 
 Console.WriteLine("Calculating strategy...");
 
-var inputToActionDict = new Dictionary<string, ActionType>
-{
-    { "A", ActionType.Rock },
-    { "B", ActionType.Paper },
-    { "C", ActionType.Scissors }
-};
-
-var inputToMatchResultDict = new Dictionary<string, MatchResult>
-{
-    { "X", MatchResult.Lose },
-    { "Y", MatchResult.Draw },
-    { "Z", MatchResult.Win }
-};
-
 
 var matchList = File.ReadLines("match_list.txt").ToList();
 
 var matchesPlayed = matchList.Select(m =>
 {
     var handsPlayed = m.Split(" ");
-    var opponentHand = inputToActionDict[handsPlayed[0]];
-    var matchResult = inputToMatchResultDict[handsPlayed[1]];
+    var opponentHand = ValueLookup.InputToAction[handsPlayed[0]];
+    var matchResult = ValueLookup.InputToMatchResult[handsPlayed[1]];
 
     var playerHand = Match.GetPlayerHandForResult(opponentHand, matchResult);
 

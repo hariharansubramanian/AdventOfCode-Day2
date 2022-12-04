@@ -26,7 +26,7 @@ public class Match
                 _ => throw new ArgumentOutOfRangeException(nameof(PlayerHand), PlayerHand, null)
             };
 
-        PlayerScore = ScoreEngine.MatchResultValueDict[PlayerMatchResult] + ScoreEngine.ActionValueDict[PlayerHand];
+        PlayerScore = ValueLookup.MatchResultToValue[PlayerMatchResult] + ValueLookup.ActionToValue[PlayerHand];
     }
 
     public static ActionType GetPlayerHandForResult(ActionType opponentHand, MatchResult matchResult)
@@ -40,35 +40,4 @@ public class Match
             _ => throw new ArgumentOutOfRangeException(nameof(opponentHand), opponentHand, null)
         };
     }
-}
-
-public enum MatchResult
-{
-    Win,
-    Lose,
-    Draw
-}
-
-public enum ActionType
-{
-    Rock,
-    Paper,
-    Scissors
-}
-
-public static class ScoreEngine
-{
-    public static readonly Dictionary<ActionType, int> ActionValueDict = new()
-    {
-        { ActionType.Rock, 1 },
-        { ActionType.Paper, 2 },
-        { ActionType.Scissors, 3 }
-    };
-
-    public static readonly Dictionary<MatchResult, int> MatchResultValueDict = new()
-    {
-        { MatchResult.Win, 6 },
-        { MatchResult.Draw, 3 },
-        { MatchResult.Lose, 0 }
-    };
 }
