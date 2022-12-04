@@ -8,13 +8,14 @@ var matchList = File.ReadLines("match_list.txt").ToList();
 var matchesPlayed = matchList.Select(m =>
 {
     var handsPlayed = m.Split(" ");
-    var opponentHand = ValueLookup.InputToAction[handsPlayed[0]];
-    var matchResult = ValueLookup.InputToMatchResult[handsPlayed[1]];
-
-    var playerHand = Match.GetPlayerHandForResult(opponentHand, matchResult);
+    var opponentHand = Glossary.InputToAction[handsPlayed[0]];
+    var matchResult = Glossary.InputToMatchResult[handsPlayed[1]];
+    
+    var playerHand = Match.GetHandForMatchResult(opponentHand, matchResult);
 
     var match = new Match(playerHand, opponentHand);
     match.ComputeResults();
+    
     return match;
 }).ToList();
 

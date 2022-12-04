@@ -26,10 +26,10 @@ public class Match
                 _ => throw new ArgumentOutOfRangeException(nameof(PlayerHand), PlayerHand, null)
             };
 
-        PlayerScore = ValueLookup.MatchResultToValue[PlayerMatchResult] + ValueLookup.ActionToValue[PlayerHand];
+        PlayerScore = Glossary.MatchResultToValue[PlayerMatchResult] + Glossary.ActionToValue[PlayerHand];
     }
 
-    public static ActionType GetPlayerHandForResult(ActionType opponentHand, MatchResult matchResult)
+    public static ActionType GetHandForMatchResult(ActionType opponentHand, MatchResult matchResult)
     {
         if (matchResult == MatchResult.Draw) return opponentHand;
         return opponentHand switch

@@ -1,6 +1,6 @@
 ﻿namespace RockPaperScissors;
 
-public static class ValueLookup
+public static class Glossary
 {
     public static readonly Dictionary<ActionType, int> ActionToValue = new()
     {
