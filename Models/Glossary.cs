@@ -1,4 +1,4 @@
-﻿namespace RockPaperScissors;
+﻿namespace RockPaperScissors.Models;
 
 public static class Glossary
 {

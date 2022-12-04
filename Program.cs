@@ -1,4 +1,4 @@
-﻿using RockPaperScissors;
+﻿using RockPaperScissors.Models;
 
 Console.WriteLine("Calculating strategy...");
 
@@ -10,12 +10,12 @@ var matchesPlayed = matchList.Select(m =>
     var handsPlayed = m.Split(" ");
     var opponentHand = Glossary.InputToAction[handsPlayed[0]];
     var matchResult = Glossary.InputToMatchResult[handsPlayed[1]];
-    
+
     var playerHand = Match.GetHandForMatchResult(opponentHand, matchResult);
 
     var match = new Match(playerHand, opponentHand);
     match.ComputeResults();
-    
+
     return match;
 }).ToList();
 
