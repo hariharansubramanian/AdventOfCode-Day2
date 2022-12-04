@@ -2,18 +2,18 @@
 
 Console.WriteLine("Calculating strategy...");
 
-var inputToActionDict = new Dictionary<string, ActionType>()
+var inputToActionDict = new Dictionary<string, ActionType>
 {
     { "A", ActionType.Rock },
     { "B", ActionType.Paper },
-    { "C", ActionType.Scissors },
+    { "C", ActionType.Scissors }
 };
 
-var inputToMatchResultDict = new Dictionary<string, MatchResult>()
+var inputToMatchResultDict = new Dictionary<string, MatchResult>
 {
     { "X", MatchResult.Lose },
     { "Y", MatchResult.Draw },
-    { "Z", MatchResult.Win },
+    { "Z", MatchResult.Win }
 };
 
 
@@ -36,4 +36,4 @@ var totalPlayerWins = matchesPlayed.Count(m => m.PlayerMatchResult == MatchResul
 var totalPlayerScore = matchesPlayed.Sum(m => m.PlayerScore);
 
 Console.WriteLine($"Played {matchesPlayed.Count} matches, Won {totalPlayerWins} matches, Score {totalPlayerScore}");
-Console.WriteLine($"Done calculating strategy results");
+Console.WriteLine("Done calculating strategy results");

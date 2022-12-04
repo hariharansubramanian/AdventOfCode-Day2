@@ -16,11 +16,8 @@ public class Match
     public void ComputeResults()
     {
         if (PlayerHand == OpponentsHand)
-        {
             PlayerMatchResult = MatchResult.Draw;
-        }
         else
-        {
             PlayerMatchResult = PlayerHand switch
             {
                 ActionType.Rock => OpponentsHand == ActionType.Scissors ? MatchResult.Win : MatchResult.Lose,
@@ -28,7 +25,6 @@ public class Match
                 ActionType.Scissors => OpponentsHand == ActionType.Paper ? MatchResult.Win : MatchResult.Lose,
                 _ => throw new ArgumentOutOfRangeException(nameof(PlayerHand), PlayerHand, null)
             };
-        }
 
         PlayerScore = ScoreEngine.MatchResultValueDict[PlayerMatchResult] + ScoreEngine.ActionValueDict[PlayerHand];
     }
@@ -50,7 +46,7 @@ public enum MatchResult
 {
     Win,
     Lose,
-    Draw,
+    Draw
 }
 
 public enum ActionType

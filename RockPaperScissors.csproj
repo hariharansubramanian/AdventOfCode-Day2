@@ -9,9 +9,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Update="match_list.txt">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
+        <None Update="match_list.txt">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
 </Project>
